@@ -1,0 +1,28 @@
+	
+<div class="text-left">
+	  	 <div class="panel panel-default">
+        <div class="panel-heading2">
+			{{ panelmessage }}</div>
+        <div class="panel-body"> 
+        <div>
+             <input placeholder="* Code search" ng-model="searchcode"></input><input placeholder="* Name search" ng-model="searchname"></input>
+        </div>
+        <div>
+              <button class="btn btn-success" ng-click="doSiteSearch(searchcode,searchname)">Search &raquo;</button>
+        </div>
+        
+        <div class="pre-scrollable">
+             <ul>
+                <li class="list-group-item" ng-repeat="searchline in siteList ">
+                    <a ng-click="lineSelect(searchline)" class="list-group-item-text"> {{searchline.code + '-' + searchline.name}}</a>
+                </li>
+            </ul>
+
+        </div>
+        
+	</div>
+        <div class="panel-heading3">
+             Copyright @{{ yeardate }} <a href="http://www.bidvestfm.co.za" title="BidvestFM">Bidvest Facilities Management</a>
+        </div>
+</div>
+</div>

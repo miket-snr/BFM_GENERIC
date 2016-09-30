@@ -1,0 +1,41 @@
+<style type="text/css">
+    .blockcontainerNoPad {
+             padding-left: 0%; 
+    }
+</style>
+
+<div class="blockcontainer blockcontainerNoPad">
+
+ <div class="panel panel-default" >
+        <div class="panel-heading2">
+           {{screenconfig.service.displayname}}
+        </div>
+    <div class="panel-body">  
+      <div class="pre-scrollable">
+        <!-- <h4 class="modal-title">Identify the Service!</h4>
+        <h4>{{screenModel.servicecode + ' -' + screenModel.longkey }} </h4> -->
+        <input type="text" ng-model="searchBox" placeholder="Search by Service" />
+ <div class="modal-body" >
+  <treecontrol class="tree-light"
+   tree-model="data"
+   options="treeOptions"
+   on-selection="treeselect(node)"
+   selected-node="node1" 
+   filter-expression="searchBox"
+   >
+   {{node.title}} 
+</treecontrol>   
+    </div>
+</div>
+ <br/>
+         
+
+ <p><a  class="btn btn-success btn-md" href="#/servicerouting">submit &raquo;</a>
+      {{screenModel.servicename}}
+      <button ng-show="screenModel.serviceStatus" type="button" class="btn btn-xs btn-info" ng-click="resetService()"> Clear Selection</button> </p>
+     </div>
+      <div class="panel-heading3">
+             Copyright @{{ yeardate }} <a href="http://www.bidvestfm.co.za" title="BidvestFM">Bidvest Facilities Management</a>
+        </div>
+    </div>
+ </div>

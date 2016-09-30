@@ -1,0 +1,36 @@
+	
+    <div class="text-left">
+       <div class="panel panel-default">
+           <div class="panel-heading2">
+               {{ message }} </div>
+        <div class="panel-body">        
+        <div class="pre-scrollable">
+             <table class =" table table-bordered ">
+                <tr  >
+                    <td class="warning">Location Code:</td>
+                    <td >{{screenModel.buildingcode?screenModel.buildingname:'No Location Provided yet'}}</td></tr>
+                <tr  > <td class="warning">Service Code:</td>
+                    <td > {{screenModel.servicecode?screenModel.servicename:'No Service Chosen yet'}}</td></tr>
+                 <tr  > <td class="warning">Short Description:</td>
+                    <td > {{screenModel.shorttext?screenModel.shorttext:'No Short Decription Provided yet'}}</td></tr>
+                 <tr  > <td class="warning">Long Description:</td>
+                    <td > {{screenModel.longtext?screenModel.longtext:'No Long Description Provided yet'}}</td></tr>
+           <!--      <tr ng-show="screenModel.routing" > <td class="warning">Routing:</td>
+                    <td > {{screenModel.routing?screenModel.routing:'No Routing Provided Yet'}}</td></tr> -->
+      </table>
+     <table class="table"> <tr>  <td>
+              <button class="btn btn-success" ng-click="createcall()">Create call</button>
+       </td> <td> </td> 
+        <td>
+              <button class="btn btn-info" ng-click="menu()">Return to Menu</button>
+            </td></tr>
+            </table>
+
+    </div>
+	</div>
+            <div class="panel-heading3">
+             Copyright @{{ yeardate }} <a href="http://www.bidvestfm.co.za" title="BidvestFM">Bidvest Facilities Management</a>
+        </div>
+</div>
+</div>
+           

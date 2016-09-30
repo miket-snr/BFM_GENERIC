@@ -1,0 +1,23 @@
+	
+    <div class="text-left">
+	  	
+        <div class="panel panel-default">
+	<div class="panel-heading2">
+           {{panelmessage}} </div>
+    <div class="panel-body"> 
+	<div class="pre-scrollable">
+             <ul>
+                <li class="list-group-item" ng-repeat="pickitem in pickList ">
+                    <a ng-click="lineSelect(pickitem)" class="list-group-item-text"> {{pickitem.code}}  {{pickitem.name }}</a>
+                </li>
+            </ul>
+
+    </div>
+    
+
+    </div> 
+ <div class="panel-heading3">
+             Copyright @{{ yeardate }} <a href="http://www.bidvestfm.co.za" title="BidvestFM">Bidvest Facilities Management</a>
+        </div>
+</div>
+</div>

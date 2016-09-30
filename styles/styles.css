@@ -1,0 +1,13 @@
+table {
+    width: 500px;   
+}
+
+thead  {
+    text-align: left;
+    background-color: #efefef;
+    color: chocolate;
+    font-weight:600 ;
+    cursor: pointer;
+}
+h3 { font-weight: bold ;
+}

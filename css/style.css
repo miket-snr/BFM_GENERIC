@@ -1,0 +1,125 @@
+@charset "UTF-8";
+/*
+ * jQuery File Upload Plugin CSS Example 8.8.2
+ * https://github.com/blueimp/jQuery-File-Upload
+ *
+ * Copyright 2013, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+
+body {
+  padding-top: 60px;
+    background-color: white;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 80%; 
+    height: 300px
+}
+
+/*
+table {
+    width: 500px;   
+}
+*/
+
+thead  {
+    text-align: left;
+    background-color:cornflowerblue; 
+    color:#efefef;
+    font-weight:600 ;
+    cursor: pointer;
+}
+
+.schoolboard {
+ background-color: coral ;
+}
+h3 , h4 { font-weight: bold ;
+    text-decoration: underline;
+}
+.panel-heading2 {
+    padding: 10px 15px;
+    font-weight: bold ;
+    font-size: 1.2em ;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+border-color: #dddddd ;
+background-color:lightgray;
+    color:darkblue ;
+}
+.panel-heading3{
+ padding: 5px 5px;
+    font-weight: bold ;
+    font-size: 0.9em ;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+border-color: #dddddd ;
+background-color:lightgray;
+    color:darkblue ;
+}
+.panel-primary .panel-heading {
+    color: #ffffff;
+    background-color:darkblue;
+    border-color: darkblue;
+}
+.panel-primary {
+ border-color:darkblue ;   
+}
+
+.navbar-inverse {
+    background-color:darkblue !important;
+    border-color: darkblue !important;
+}
+.Logo img {
+    height: 80px;
+    border: none;
+        float: left;
+    margin-top: -20px;
+    margin-left: 5%;
+}
+.blockcontainer
+{
+    margin:2%;
+    width:100%;
+    padding-left:5%;
+    padding-right:5%;
+    /* relative size and position on page  */
+    float: left;
+    position:relative;  /* coord system stop */
+    top: 0px; /* IE? */
+    bottom:30px;
+}
+.btn-warning {
+ background-color: darkblue !important;
+        background-image: linear-gradient(darkblue, darkblue 6%, darkblue);
+    background-repeat: no-repeat;
+    border: 1px solid darkblue;
+    width: 150px ;
+}
+
+.btn-success {
+    
+ background-color: darkgreen ;
+    width: 150px ;
+}
+.btn-primary {
+    width: 150px ;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+  background-color: #f5f5f5;
+}

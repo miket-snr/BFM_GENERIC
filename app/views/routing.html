@@ -1,0 +1,20 @@
+	
+    <div class="text-left">
+        <div class="panel panel-default">        
+        <div class="panel-heading2">
+        {{screenModel.servicename}} </div>
+        <div class="panel-body">     
+        <div class="pre-scrollable">
+             <ul>
+                <li class="list-group-item" ng-repeat="route in routlist | orderBy:'CODE'">
+                    <a ng-click="lineSelect(route)" class="list-group-item-text"> {{ route.CODE }}</a>
+                </li>
+            </ul>
+
+        </div>                 
+	</div>
+    <div class="panel-heading3">
+             Copyright @{{ yeardate }} <a href="http://www.bidvestfm.co.za" title="BidvestFM">Bidvest Facilities Management</a>
+        </div>
+</div>
+</div>         

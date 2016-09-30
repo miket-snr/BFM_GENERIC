@@ -1,0 +1,19 @@
+<h2>How the Login Works</h2>
+<hr/>
+<h3> <span class="label label-success">Step 1:</span>
+        <span> &nbsp; </span><span class="label label-primary">User Registration</span></h3>
+<p> The User has to be registered with an Authentication Server. For this API demo, the Authentication Server is SAP and the User <b>MUST</b> be registered as a Business Partner</p>
+<p>For the demo just use any email address and the password "newP0ss" . No data can be changed with this logon and in time it will be removed </p>
+<h3> <span class="label label-success">Step 2:</span>
+        <span> &nbsp; </span><span class="label label-primary">Token Issued</span></h3>
+<p> On successful Authentication, the User will be issued a TOKEN that is a very long set of alphanumeric characters by the OAuth process in the API. This is a simple call to <b>https://...</b> .... <b>/Token </b> and note the SSL requirement. In the body of the call there has to be three parameters: </p>
+<h4> grant_type: 'password' </h4>
+<h4> user: user-email entered </h4>
+<h4> password: user password entered </h4>
+<p> This call will return a long string that is known as a "token" and must be used for later calls - it is useable by the User on any device and will expire in 30 minutes (we can change this by design )
+<b> But the Token has to be kept secure - </b> hence all calls are https//...</p>
+
+<h3> <span class="label label-success">Step 3:</span>
+        <span> &nbsp; </span><span class="label label-primary">Token Usage</span></h3>
+<p> The API Service is exposed to all and sundry on the Internet and has to be secured and so the API has to be in a certain format with an <b>ISSUED TOKEN</b> and using the <b>https://</b> Protocol.</p>
+<p>There is a lot of information available on Google or Bing regarding the usage of TOKENS. </p>

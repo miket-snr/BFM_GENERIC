@@ -1,0 +1,34 @@
+	
+ <div class="text-left">
+	  	
+   <div class="panel panel-default">
+       <div class="panel-heading2">
+           Tell us more </div>
+      <div class="panel-body"> 
+        <div class="control-group">
+     
+          <div class="controls">  
+           <div> <label class="control-label" >Short Text</label></div>
+            <div><input type="text" id="shorttext" placeholder="* Short Description REQUIRED"  ng-model="screenModel.shorttext"></div>
+          </div>
+       
+        <div class="controls">
+             <div><label class="control-label" >Long Text</label></div>
+             <div><textarea id="longtext" rows="6" cols="40" placeholder="* Long Description REQUIRED"  ng-model="screenModel.longtext"></textarea></div>
+        </div>
+        <div>
+			<p style="color:blue">{{ message }}</p>
+		</div>
+      </div>
+        <div>
+            <input type="button" class=" btn btn-success" value="Submit &raquo" ng-click="checkvalid()"></input>
+       </div>
+     </div>
+     <div>
+        <div class="panel-heading3">
+             Copyright @{{ yeardate }} <a href="http://www.bidvestfm.co.za" title="BidvestFM">Bidvest Facilities Management</a>
+        </div>
+     </div>
+  </div>
+        
+</div>
