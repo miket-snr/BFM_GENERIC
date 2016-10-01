@@ -3,16 +3,15 @@
     'use strict';
 
     var configFactory = function($http, $localStorage,$timeout, urls,dataFactory) {
-    
+        dataFactory.getSAPConfig(dataFactory.contractcode,dataFactory.configList) ;
+
         var conffactory = {};
-        alert('I am here') ;
-		
-		conffactory.currentsection = '' ;
+       	conffactory.currentsection = '' ;
 		conffactory.currentsectionlist = [] ;
 		conffactory.currentconfigline =  {} ;
-		conffactory.callcontext = {};
+		conffactory.callcontext = dataFactory.CallBuilder;
 		conffactory.currentsequencenmbr = 0 ;
-		conffactory.contractcode = 'BASE' ;
+		conffactory.contractcode = $localStorage.contractcode ;
 		conffactory.username = '' ;
 		
 
@@ -44,13 +43,14 @@
 	 
 };
 		 conffactory.getCurrentConfigLine = function (atSection) {
-            return ;
+            return this.currentconfigline ;
         };
 		 conffactory.buildDataUrl = function () {
-            return ;
+			var callcontext_min =  this.stripblanks(this.callcontext)  
+            return  'Partner=ABCD&ClientID=' + this.currentconfigline.SCR_CODE + '&CallContext=' + callcontext_min.stringify ;
         };
 		 conffactory.buildHeading = function (atSection) {
-            return ;
+            return 'panelmessage here' ;
         };
 		 conffactory.updateCallContextFromList = function (node) {
             return ;
@@ -64,6 +64,16 @@
             return path;
         };
 		
+		conffactory.stripblanks = function(fullobj){
+          var strippedobj = JSON.parse(JSON.stringify(fullobj));
+		  for (var propName in strippedobj) { 
+			if (strippedobj[propName] === null || strippedobj[propName] === undefined || strippedobj[propName] == '' ) {
+			  delete strippedobj[propName];
+					}
+		  		}
+			  return strippedobj ;
+			} ;
+        
         return conffactory;
     };
     

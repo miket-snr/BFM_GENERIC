@@ -1,6 +1,6 @@
 (function() {
     
-    var SignUpController = function ($scope,  dataFactory) {
+    var SignUpController = function ($scope,  dataFactory,callLogic) {
         $scope.signupData = {};
         
         $scope.signup = function() {
@@ -9,7 +9,7 @@
 
     };
     
-    SignUpController.$inject = ['$scope',  'dataFactory'];
+    SignUpController.$inject = ['$scope',  'dataFactory','callLogic'];
 
     angular.module('templateApp')
       .controller('SignUpController', SignUpController);

@@ -4,12 +4,11 @@ angular.module('templateApp').controller('BaseController', ['$rootScope', '$scop
                     $localStorage.username = $scope.email;
                     $localStorage.fullname = '*';
                     $localStorage.partner = '*';
-                    $localStorage.clientcode = 'BASE';
                     $scope.token = $localStorage.token;
                      $timeout(function () {
                       window.location = "index.html";
                     }, 110);
-                  dataFactory.getConfig('BASE') ; 
+                  dataFactory.getConfig(callLogic.contractcode) ; 
                   Auth.getusernames( successDet, function () {
                         $rootScope.error = 'Invalid credentials.';
                     },$scope.email);
@@ -33,6 +32,8 @@ angular.module('templateApp').controller('BaseController', ['$rootScope', '$scop
                         $rootScope.error = 'Invalid credentials.';
          },tuser) };
          $scope.signin = function () {
+			     callLogic.contractcode = $scope.contractcode ;
+			     $localStorage.contractcode = $scope.contractcode ;
                     var formData = {
                        grant_type: 'password',
                         username: $scope.email,
@@ -89,13 +90,13 @@ angular.module('templateApp').controller('BaseController', ['$rootScope', '$scop
                 $scope.sortBy = 'name';
                 $scope.reverse = false;
                 $scope.customers = [];
-            var d = new Date();
+                var d = new Date();
                 $scope.yeardate = d.getFullYear();  
                 $scope.myjson = {} ;
                 $scope.screenModel = dataFactory.screenModel ;
                 dataFactory.screenModel.username =  $localStorage.username;
                 $scope.screenModel.username = $localStorage.username;
-     
+   
 $scope.imageUri = "";
 $scope.setFileUri = function (fileUri) {
    dataFactory.fileUri = fileUri ; 

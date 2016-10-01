@@ -1,11 +1,8 @@
 angular.module('templateApp').controller('picklistController', ['$rootScope', '$scope', '$routeParams', '$location','$timeout', '$localStorage', 'dataFactory', 'AuthsFactory',  function ($rootScope, $scope, $routeParams, $location,$timeout, $localStorage, dataFactory, AuthsFactory, Auth) {
     
   //On Entry we need to Identify the Call Context i.e. are we on Location or Partner or ?
-	$scope.atsection = $routeParams.param1 ;
-  // what do I need to pass as Context TO SAP for Data	
-	$scope.callcontext = callLogic.getContext($scope.atsection) ;
  // what is the current config line
-	$scope.thisconfigline = callLogic.getCurrentConfigLine($scope.atsection);
+	$scope.thisconfigline = callLogic.getCurrentConfigLine();
  // now build the data fetch URL
 	$scope.callUrl = callLogic.buildDataUrl();
  // what heading must I use?

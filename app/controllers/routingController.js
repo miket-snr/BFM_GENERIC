@@ -1,4 +1,4 @@
-angular.module('templateApp').controller('serviceroutingController', ['$rootScope', '$scope', '$routeParams', '$location', '$timeout', '$localStorage', 'AuthsFactory', 'dataFactory', function ($rootScope, $scope, $routeParams, $location, $timeout, $localStorage, AuthsFactory, dataFactory, Auth) { 
+angular.module('templateApp').controller('routingController', ['$rootScope', '$scope', '$routeParams', '$location', '$timeout', '$localStorage', 'AuthsFactory', 'dataFactory','callLogic', function ($rootScope, $scope, $routeParams, $location, $timeout, $localStorage, AuthsFactory, dataFactory, callLogic) { 
   $scope.routlist = [] ;
    $scope.calldata = {} ;  
   $scope.calldata = dataFactory.screenModel;

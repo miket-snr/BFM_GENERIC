@@ -1,6 +1,6 @@
 
 (function() {
-    var dataFactory = function($http, AuthsFactory) {
+    var dataFactory = function($http, localstorage, AuthsFactory) {
     
         var factory = {};
             factory.locationData = {} ;
@@ -8,6 +8,39 @@
             factory.mobi = true ;
             factory.fileUri = '';
             factory.treeData = [];
+		factory.CallBuilder = {
+			 CONTRACTCODE :'BASE' ,
+			 LEVEL :'' ,
+			 SERVICECODE :'' ,
+			 KEY_LEVEL_1 :'' ,
+			 DES_LEVEL_1 :'' ,
+			 KEY_LEVEL_2 :'' ,
+			 DES_LEVEL_2 :'' ,
+			 KEY_LEVEL_3 :'' ,
+			 DES_LEVEL_3 :'' ,
+			 KEY_LEVEL_4 :'' ,
+			 DES_LEVEL_4 :'' ,
+			 KEY_LEVEL_5 :'' ,
+			 DES_LEVEL_5 :'' ,
+			 KEY_LEVEL_6 :'' ,
+			 DES_LEVEL_6 :'' ,
+			 SHORT_TEXT :'' ,
+			 LONGTEXT :'' ,
+			 PARTNER_1 :'' ,
+			 PARTNER_2 :'' ,
+			 DIVISION :'' ,
+			 SERVICEPROVIDER :'' ,
+			 DATE_1 :'' ,
+			 DATE_2 :'' ,
+			 TIME_1 :'' ,
+			 TIME_2 :'' ,
+			 EXTREF :'' ,
+			 EXTRA_1: '',
+			 EXTRA_2: '',
+			 EXTRA_3: '',
+			 
+			EXTRA_4: ''
+		} ;
             factory.screenModel = {
                 username: factory.locationData.username ,
                 calltype: 'T1',
@@ -44,7 +77,7 @@
                 shorttext: null,
                 longtext: null,
                 feedback: ' ',
-                notification: "0",
+                notification:  0 ,
                 siteList: [],
                 buildingList: [],
                 floorList: [],
@@ -105,7 +138,7 @@
                 shorttext: null,
                 longtext: null,
                 feedback: ' ',
-                notification: "0",
+                notification:  0 ,
                 siteList: [],
                 buildingList: [],
                 floorList: [],
@@ -117,63 +150,11 @@
 };   
       };
      var oPartner = factory.partnerList() ;    
-     factory.screenConfig = {
-         division:{
-             displayname:"Division",
-             active:"X",
-             BUSUNIT:{
-                     displayname:"",
-                     active:""
-                     }
-             } ,
-         partners:{
-             displayname:"Partners",
-             active:"X",
-             ALTERNATE:{
-                       displayname:"",
-                       active:"" 
-                       },
-             NOTIFY:{
-                     displayname:"",
-                     active:"" 
-                    }
-             } ,
-        location:{
-             displayname:"Location",
-             active:"X",
-             LEVEL_1:{
-                 displayname:"Site",
-                 active:"" 
-                },
-             LEVEL_2:{
-                 displayname:"Building",
-                 active:"" 
-                },
-             LEVEL_3:{
-                 displayname:"Floor",
-                 active:"" 
-                },
-             LEVEL_4:{
-                 displayname:"Zone",
-                 active:"" 
-                }
-             }   ,
-        service:{
-                 displayname:"Service",
-                 active:"X",
-                 typeofview:"tree"
-             } ,
-        routing:{
-                 displayname:"Routing",
-                 active:"X"
-               
-             }  
-            
-        };
+    factory.screenConfig = {} ;
 	
  factory.buildTreeData =  function(){
                 var l1 = 0; var l2 = 0; var l3 = 0; var l4 = 0;
-                var s1 = "ROOT"; var s2 = "X"; var s3 ="x" ;
+                var s1 =  'ROOT' ; var s2 =  'X' ; var s3 = 'x' ;
                 var oData3 = factory.screenModel.servicesList;
                 oDat1 = []; 
                 for (var i = 0, len = oData3.length; i < len; i++) {
@@ -205,16 +186,17 @@
                 }
                    
 }
-factory.treeData = oDat1 ;  } ;
+factory.treeData = oDat1 ; 
+ } ;
  factory.getHierarchy =  function(){
                 var l1 = 0; var l2 = 0; var l3 = 0; var l4 = 0;
-                var s1 = "X"; var s2 = "X"; var s3 ="x" ;
+                var s1 =  X ; var s2 =  X ; var s3 = x  ;
                 var oData3 = factory.nodeData;
                 oDat1 = []; 
                 for (var i = 0, len = oData3.length; i < len; i++) {
                     if (oData3[i].Level1 != s1) {
                         s1 = oData3[i].Level1;
-                        l1 += 1; l2 = 0; l3 = 0; s2 = "X";
+                        l1 += 1; l2 = 0; l3 = 0; s2 =  X ;
                         oD1 = new Object();
                         oD1.key = oData3[i].NodeKey;
                         oD1.title = oData3[i].Level1;
@@ -224,20 +206,20 @@ factory.treeData = oDat1 ;  } ;
                     }
                     if (oData3[i].Level2 != s2) {
                         s2 = oData3[i].Level2;
-                        l2 += 1; l3 = 0; s3 = "X";
+                        l2 += 1; l3 = 0; s3 =  X ;
                         oD2 = new Object();
-                        oD2.key = oData3[i].NodeKey + "-" + l2;
+                        oD2.key = oData3[i].NodeKey +  -  + l2;
                         oD2.title = oData3[i].Level2;
-                        oD2.longkey = oData3[i].Level1 + "~" + oData3[i].Level2;
+                        oD2.longkey = oData3[i].Level1 +  ~  + oData3[i].Level2;
                         oD2.nodes = [] ;
                         oD1.nodes.push(oD2);
                     }
                     l3 += 1;
                     if (oData3[i].Level3 != null){
                     oD3 = new Object();
-                    oD3.key = oData3[i].NodeKey + "-" + l2 + "-" + l3;
+                    oD3.key = oData3[i].NodeKey +  -  + l2 +  -  + l3;
                     oD3.title = oData3[i].Level3;
-                    oD3.longkey =  oData3[i].Level1 + "~" + oData3[i].Level2 + "~" + oData3[i].Level3;
+                    oD3.longkey =  oData3[i].Level1 +  ~  + oData3[i].Level2 +  ~  + oData3[i].Level3;
                     oD2.nodes.push(oD3);
                 }
 
@@ -246,13 +228,13 @@ factory.treeData = oDat1 ;  } ;
 //factory.treedata = factory.getHierarchy() ;
 	factory.callerscreen = {caller:'',extradata:''} ;	
 	factory.configList = {menulist:[],configlist:[] };
-   	var contractcode = 'BASE' ;
-   factory.getSAPConfig = function(contractcode, dataxFactory) {
+   	factory.contractcode = localstorage.contractcode ;
+    factory.getSAPConfig  = function(contractcode, dataxFactory) {
             var call = 'Partner=ABCD&ClientID=MOSC&CallContext={CONTRACTCODE:' + contractcode + '}';
             var token = ' ';
             var successConfig = function(res) {
               	for (var i = 0 ; i< res.ServicesList.length ; i++ ) {
-				   var tempstr =	res.ServicesList[i].JsonsetJstext.replace(/:,/g,":\"\",");
+				   var tempstr =	res.ServicesList[i].JsonsetJstext.replace(/:,/g, ': 0 ,' );
                            var tempObj = JSON.parse(tempstr);
                     if( tempObj.SCREENNAME =='BASE' && tempObj.SHOWTHIS =='X') {
 						dataxFactory.menulist.push(tempObj) ; 
@@ -264,7 +246,6 @@ factory.treeData = oDat1 ;  } ;
         }, call);
           return 'X' ;
         }    ;
-	factory.getSAPConfig(contractcode,factory.configList) ;
     function getService(datamodel,innerfactory) {
             var call = 'Partner=SBFM&ClientId=SERV&CallContext={}';
             var token = ' ';
@@ -286,7 +267,7 @@ factory.treeData = oDat1 ;  } ;
                 console.log(error );
                 }, call);
         };
-        getService(factory.screenModel,factory);
+        getService(factory.screenModel,factory) ;
         
 //    factory.getroutinglist = function(routlist,icall) {   
 //        routlist = [];
@@ -307,7 +288,7 @@ factory.treeData = oDat1 ;  } ;
        return factory;
     };
     
-    dataFactory.$inject = ['$http','AuthsFactory'];
+    dataFactory.$inject = ['$http','$localStorage','AuthsFactory'];
         
     angular.module('templateApp').factory('dataFactory', 
                                           dataFactory);

@@ -103,49 +103,7 @@
             $scope.animationsEnabled = !$scope.animationsEnabled;
         };
     };
-    angular.module('templateApp').controller('ServTreeController',
+    angular.module('templateApp').controller('treelistController',
         ServTreeController);
 })();
 
-angular.module('templateApp').controller('ModalSrvInstanceCtrl', function(
-    $scope, $modalInstance, items, screenModel) {
-    $scope.items = items;
-    $scope.screenModel = screenModel;
-    $scope.sitefilter = "";
-    $scope.screenfields = 'None Selected';
-    $scope.selected = {
-        item: $scope.items[0]
-    };
-    $scope.treeselect = function(node) {
-        $scope.screenModel.servicecode = node.key;
-        $scope.screenModel.longkey = node.longkey;
-        $scope.screenModel.serviceStatus = true;
-    };
-    $scope.lineselect = function(node) {
-        $scope.screenModel.servicecode = node.NodeKey;
-        $scope.screenModel.longkey = node.searchfield;
-        $scope.screenModel.effect = node.Effect;
-        $scope.screenModel.department = node.Department;
-        $scope.screenModel.serviceStatus = true;
-    };
-    $scope.collapseAll = function() {
-        $scope.$broadcast('collapseAll');
-    };
-    $scope.expandAll = function() {
-        $scope.$broadcast('expandAll');
-    };
-    $scope.data = items;
-    $scope.toggle = function(scope) {
-        scope.toggle();
-    };
-    $scope.doSearch = function(sitecode, sitename) {
-        dataFactory.dobuildingsearch(sitecode, sitename);
-    }
-    $scope.serviceok = function() {
-        $modalInstance.close($scope.screenModel);
-      //  $location.path('/');
-    };
-    $scope.servicecancel = function() {
-        $modalInstance.dismiss('cancel');
-    };
-});

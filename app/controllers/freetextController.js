@@ -1,4 +1,4 @@
-angular.module('templateApp').controller('descriptionController', ['$rootScope', '$scope', '$routeParams', '$location','$timeout', '$localStorage', 'dataFactory', 'AuthsFactory',  function ($rootScope, $scope, $routeParams, $location,$timeout, $localStorage, dataFactory, AuthsFactory, Auth) {
+angular.module('templateApp').controller('freetextController', ['$rootScope', '$scope', '$routeParams', '$location','$timeout', '$localStorage', 'dataFactory', 'AuthsFactory','callLogic',  function ($rootScope, $scope, $routeParams, $location,$timeout, $localStorage, dataFactory, AuthsFactory, callLogic) {
    
 	$scope.message="";			
 	$scope.screenModel = dataFactory.screenModel ;	
